@@ -1,0 +1,20 @@
+{
+  "name": "programmers-core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.2.0",
+    "live-server": "^1.2.2",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "dev": "live-server client --host=localhost --port=5500 --no-browser",
+    "serve": "node server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
