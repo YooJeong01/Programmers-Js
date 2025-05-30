@@ -4,4 +4,4 @@
 // console.log('hi')
 // console.log(navigator.language);
 
-const a = 1000;
+console.log(global);
