@@ -1,0 +1,31 @@
+/* 인라인 요소는 애니메이션이 안먹기때문에 inline-block으로 바꿔줘야한다 */
+
+.first{
+    display: inline-block;
+}
+
+.second{
+    display: inline-block;
+}
+
+.space {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        position: absolute;
+    }
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+}
