@@ -2,13 +2,16 @@
 
 .first{
     display: inline-block;
+    font-size: 30px;
 }
 
 .second{
     display: inline-block;
+    font-size: 30px;
+
 }
 
-.space {
+/* .space {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -28,4 +31,39 @@
     height: 30px;
     border-radius: 50%;
     background-color: dodgerblue;
+} */
+
+.ground{
+  width: 400px;
+  height: 300px;
+  border: 5px solid black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate:-50% -50%;
+  background-color: rgb(24, 110, 24);
+  /* cursor: none; */
+}
+
+
+.ball{
+    display: inline-block;
+    /* transition : all .2s; */
+    /* 마우스를 인식하지 못하게함 */
+    pointer-events: none; 
+}
+
+section{
+    background-color: rgb(157, 206, 255);
+    padding: 2rem;
+
+    article {
+        background-color: rgb(255, 183, 219);
+        padding: 2rem;
+
+        p{
+            background-color: rgb(255, 229, 181);
+            padding: 2rem;
+        }
+    }
 }

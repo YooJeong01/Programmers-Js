@@ -6,32 +6,41 @@
     <title>자바스크립트 학습</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="./chapter/utils/type.js"></script>
-    <script src="./chapter/dom/01.BOM.js" defer></script>
+    <script src="./chapter/utils/getNode.js"></script>
+    <script src="./chapter/utils/insert.js"></script>
+    <script src="./chapter/dom/09.eventDelegation.js" defer></script>
 </head>
 <body>
-    <span class="first">core</span>
-    <span class="second">javascript</span>
-    <!-- <button type="button" class="btn">버튼</button> -->
-    <!-- <form class="todo">
-        <label for="txt">TODO</label>
-        <input type="text" id="txt" class="todoInput"/>
-        <button class="todoButton">ADD</button>
-    </form> -->
 
-    <!-- <button type="button" class="btn">click me!</button>
+    <nav class="navigation">
+        <li><a href="/">HOME</a></li>
+        <li class="about"><a href="/about">ABOUT</a></li>
+        <li data-name="contact"><a href="/contact">CONTACT</a></li>
+    </nav>
 
-    <ul class="todoList">
-    </ul>
+    <div id="app"></div>
 
-    <div class="space">
-        <div class="circle"></div>
+    <h1>
+        <span class="first">core</span>
+        <span class="second">javascript</span>  
+    </h1>
+
+    <section>
+        <article>
+            <p></p>
+        </article>
+    </section>
+
+
+    <!-- <div class="ground">
+        <div class="ball">
+            <img src="https://en.js.cx/clipart/ball.svg" alt="축구공" />
+        </div>
     </div> -->
 
-    <ul>
-
-    </ul>
-
+    <!-- <video autoplay id="videoElement"></video> -->
 
 </body>
 </html>
