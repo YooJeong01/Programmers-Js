@@ -75,3 +75,9 @@ function handleClear(e) {
 first.addEventListener('input', handleInput);
 second.addEventListener('input', handleInput);
 clear.addEventListener('click', handleClear);
+
+
+
+
+
+
