@@ -1,4 +1,5 @@
 import {
+  copy,
   shake,
   addClass,
   getRandom,
@@ -83,7 +84,7 @@ function handleCopyClipboard(){
   const text = this.textContent;
   
   
-  navigator.clipboard.writeText(text)
+  copy(text)
   .then(()=>{
       showAlert({
         target:'.alert-success',
