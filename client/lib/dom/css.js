@@ -62,3 +62,4 @@ export function toggleClass(node,className){
  if(isString(node)) node = getNode(node);
   return node.classList.toggle(className);
 }
+

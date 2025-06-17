@@ -27,3 +27,4 @@ function getNodes(node,context = document){
 
   return context.querySelectorAll(node);
 }
+

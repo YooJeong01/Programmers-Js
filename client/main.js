@@ -86,19 +86,33 @@ function handleCopyClipboard(){
   
   copy(text)
   .then(()=>{
-      showAlert({
-        target:'.alert-success',
-        className:'is-active',
-        message:'클립보드 복사 완료!!',
-        timeout:2000,
-      })
+    showAlert({
+      target:'.alert-success',
+      className:'is-active',
+      message:'클립보드 복사 완료!!',
+      timeout:2000,
+    })
   })
   
-
-
   
 }
 
 submit.addEventListener('click', handleSubmit);
 
 result.addEventListener('click',handleCopyClipboard)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

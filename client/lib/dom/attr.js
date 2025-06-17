@@ -35,3 +35,12 @@ export function attr(node,prop,value){
 
 
 export const _attr = (node,prop,value) => isUndefined(value) ? getAttr(node,prop) : setAttr(node,prop,value);
+
+
+
+
+
+
+
+
+
