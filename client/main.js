@@ -1,4 +1,4 @@
-import { diceAnimation, getNode, insertLast, attr } from './lib/index.js';
+import { diceAnimation, getNode, insertLast, attr, endScroll, clearContents } from './lib/index.js';
 
 const [rollingButton, recordButton, resetButton] = document.querySelectorAll('.buttonGroup  button');
 const recordListWrapper = getNode('.recordListWrapper');
@@ -33,16 +33,11 @@ function createItem(value){
   `
 }
 
-
-
 function renderRecordItem(){
   const diceNumber = attr('#cube', 'dice')*1;
   console.log('주사위 눈 : ',diceNumber);
 
-
-  const tbody = document.querySelector('tbody');
-  insertLast(tbody, createItem(diceNumber));
-  recordListWrapper.scrollTop = recordListWrapper.scrollHeight
+  insertLast('tbody', createItem(diceNumber));
 }
 
 
@@ -82,13 +77,13 @@ const handleRollingDice = (() => {
     if(!isClicked){
       id = setInterval(diceAnimation, 100);
       recordButton.disabled = true;
-      resetButton.dispatchEvent = true;
+      resetButton.disabled = true;
       console.log('on');
       
     } else{
       clearInterval(id);
       recordButton.disabled = false;
-      resetButton.dispatchEvent = false;
+      resetButton.disabled = false;
       console.log('off');
     }
 
@@ -97,13 +92,18 @@ const handleRollingDice = (() => {
 
 })()
 
+
 function handleRecord(){
   recordListWrapper.hidden = false;
   renderRecordItem();
+  endScroll(recordListWrapper)
 }
 
 function handleReset(){
   recordListWrapper.hidden = true;
+  clearContents('tbody')
+  count = 0;
+  sumDiceNumber = 0;
 }
 
 rollingButton.addEventListener('click', handleRollingDice);
