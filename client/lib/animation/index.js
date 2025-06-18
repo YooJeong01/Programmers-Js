@@ -3,4 +3,4 @@
 
 
 export {default as shake} from './shake.js';
-export {diceAnimation} from './cube.js';
+// export {diceAnimation} from './cube.js';

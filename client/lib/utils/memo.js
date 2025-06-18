@@ -1,8 +1,4 @@
 
-console.log('memo');
-
-
-
 export const memo = (() => {
     const cache = {};
 
@@ -32,7 +28,7 @@ export const memo = (() => {
 // @param1 : key
 // @param2 : value
 memo('cube', ()=>document.querySelector('#cube'));
-console.log(memo('cube'));
+// console.log(memo('cube'));
 
 
 memo('say', ()=>'hello');
