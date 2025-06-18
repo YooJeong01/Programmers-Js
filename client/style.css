@@ -14,3 +14,17 @@ body {
   
   background-size: cover;
 }
+
+h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+h1 span {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  transition: all 1s;
+}

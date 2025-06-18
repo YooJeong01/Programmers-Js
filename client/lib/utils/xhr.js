@@ -63,12 +63,12 @@ const obj = {
 }
 
 // 하 범쌤코드인데 서버에서 500 에러가 난다
-xhr({
-  method:'DELETE',
-  url:`${END_POINT}/4`,
-  success: (data)=> console.log(data),
-  fail: ({message})=> console.log(message),
-})
+// xhr({
+//   method:'DELETE',
+//   url:`${END_POINT}/4`,
+//   success: (data)=> console.log(data),
+//   fail: ({message})=> console.log(message),
+// })
 
 
 
@@ -76,13 +76,6 @@ xhr({
 xhr.get = (url, success, fail)=> {
     xhr({ url, success, fail })
 }
-
-xhr.get(
-    END_POINT,
-    (data) => console.log(data),
-    ()=>{}
-)
-
 
 
 xhr.post = (url, body, success, fail) => {
@@ -94,14 +87,6 @@ xhr.post = (url, body, success, fail) => {
         fail
     })
 }
-
-xhr.post(
-    END_POINT,
-    obj,
-    ()=>{},
-    ()=>{},
-)
-
 
 
 xhr.delete = (url,success,fail) => {
