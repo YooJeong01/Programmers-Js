@@ -1,4 +1,5 @@
 import { getNode } from '../dom/getNode.js'
+import { isNumber, isObject } from './type.js'
 
 function delay(callback, timeout = 1000){
     setTimeout(callback, timeout)
@@ -33,18 +34,52 @@ Promise를 사용하는 이유?
 - 비동기 작업을 순차적으로 처리
 */
 
-function delayP(shouldRejected = false, timeout=1000){
+const defaultOptions = {
+    shouldRejected : false,
+    data : '성공',
+    errorMessage : '알 수 없는 오류',
+    timeout : 1000,
+}
+
+
+
+
+
+
+
+function delayP(options) {
+    let config = {...defaultOptions}
+    // 전달받은 인자(=options)가 숫자인 경우
+    if(isNumber(options)){
+        // 타임아웃 시간 재할당
+        config.timeout = options;
+    }
+    // 전달받은 인자(=options)가 객체인 경우
+    if(isObject(options)){
+        // config 객체 값 재할당
+        config = {...defaultOptions, ...options};
+    }
+    const {shouldRejected, timeout, errorMessage, data} = config;
+
+
+    // 실제로 promise 쓸 때는 setTimeout 안 쓴다
+    // 서버와의 통신이 들어가겠죠?
     return new Promise((resolve, reject)=>{
 
         setTimeout(()=>{
             if(!shouldRejected){
-                resolve('성공!');
+                //payload 내가 넣고주고 싶은거, 원하는 형태로 전달하면 됨 ㅇㅇ 
+                resolve(data);
             } else {
-                reject({message:'오류 발생!'});
+                reject({message:errorMessage});
             }
         },timeout)
     })
 }
+
+delayP(1000)
+
+delayP({errorMessage : '에러~~~'})
 
 
 
