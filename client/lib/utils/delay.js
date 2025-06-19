@@ -84,22 +84,22 @@ delayP({errorMessage : '에러~~~'})
 
 
 
-delayP()
-.then(()=>{
-    first.style.top= '-100px',
-    second.style.top = '100px'
+// delayP()
+// .then(()=>{
+//     first.style.top= '-100px',
+//     second.style.top = '100px'
 
-    // 시간만큼 미뤄주기 위해서 계속 delayP를 반환함
-    // delayP가 promise를 리턴하기때문에 이렇게 사용할 수 있다
-    return delayP();
-})
-.then(()=>{
-    first.style.transform = 'rotate(360deg)';
-    second.style.transform = 'rotate(-360deg)';
+//     // 시간만큼 미뤄주기 위해서 계속 delayP를 반환함
+//     // delayP가 promise를 리턴하기때문에 이렇게 사용할 수 있다
+//     return delayP();
+// })
+// .then(()=>{
+//     first.style.transform = 'rotate(360deg)';
+//     second.style.transform = 'rotate(-360deg)';
 
-    return delayP();
-})
-.then(()=>{
-    first.style.top = 0;
-    second.style.top = 0;
-})
+//     return delayP();
+// })
+// .then(()=>{
+//     first.style.top = 0;
+//     second.style.top = 0;
+// })

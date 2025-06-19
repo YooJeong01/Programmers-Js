@@ -111,3 +111,95 @@ xhr.patch = (url,body,success,fail) => {
     fail
   })
 }
+
+// -------------------- 06.19 ------------------------------
+
+const defaultOptions = {
+  method:'GET',
+  url:'',
+  body:null,
+  errorMessage:'서버와의 통신이 원활하지 않습니다.',
+    headers:{
+    'Content-Type':'application/json',
+    'Access-Controll-Allow-Origin':'*'
+  },
+}
+
+
+
+function xhrPromise(options={}){
+
+  // 객체 합성
+  const {method, url, body, headers, errorMessage:message} = {
+    ...defaultOptions, 
+    ...options,
+    headers:{
+      ...defaultOptions.headers,
+      ...options.headers
+    }
+  
+  }
+
+  // 구조 분해 할당
+  // const {method, url, body, headers, errorMessage:message} = config;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+
+
+
+
+  if (method !== 'DELETE') {
+    Object.entries(headers).forEach(([k,v])=>{
+      xhr.setRequestHeader(k,v);
+    })
+  }
+  xhr.send(body ? JSON.stringify(body) : null);
+
+
+
+
+  return new Promise((resolve, reject) => {
+    xhr.addEventListener('readystatechange', ()=>{
+      
+      const {readyState, status, response} = xhr;
+      if(readyState === 4){
+        if(status >= 200 && status < 400){
+          resolve(JSON.parse(response));
+          
+        } else {
+          reject({message});
+        }
+      }
+    })
+  })
+
+
+
+}
+
+
+xhrPromise({
+  method:'POST',
+  url: END_POINT,
+  body: obj,
+  headers:{
+    'Content-Type':'application/json',
+    'Access-Controll-Allow-Origin':'*'
+  },
+}).then(
+  (res)=>{
+  console.log(res);
+  console.log(res.name);
+},(err)=>{
+  console.log(err);
+  
+})
+
+
+// compound method
+xhrPromise.get = (url)=> xhrPromise({url})
+xhrPromise.post = (url, body) => xhrPromise({method : 'POST',url, body})
+xhrPromise.delete = (url) =>  xhrPromise({method:'DELETE',url})
+xhrPromise.put = (url,body) => xhrPromise({url, method:'PUT', body})
+xhrPromise.patch = (url, body) => xhrPromise({url, method:'PATCH', body});
