@@ -1,4 +1,4 @@
-const END_POINT = 'https://jsonplaceholder.typicode.com/users';
+export const END_POINT = 'https://jsonplaceholder.typicode.com/users';
 
 /* 
   [readyState]
@@ -127,7 +127,7 @@ const defaultOptions = {
 
 
 
-function xhrPromise(options={}){
+export function xhrPromise(options={}){
 
   // 객체 합성
   const {method, url, body, headers, errorMessage:message} = {
@@ -179,22 +179,22 @@ function xhrPromise(options={}){
 }
 
 
-xhrPromise({
-  method:'POST',
-  url: END_POINT,
-  body: obj,
-  headers:{
-    'Content-Type':'application/json',
-    'Access-Controll-Allow-Origin':'*'
-  },
-}).then(
-  (res)=>{
-  console.log(res);
-  console.log(res.name);
-},(err)=>{
-  console.log(err);
+// xhrPromise({
+//   method:'POST',
+//   url: END_POINT,
+//   body: obj,
+//   headers:{
+//     'Content-Type':'application/json',
+//     'Access-Controll-Allow-Origin':'*'
+//   },
+// }).then(
+//   (res)=>{
+//   console.log(res);
+//   console.log(res.name);
+// },(err)=>{
+//   console.log(err);
   
-})
+// })
 
 
 // compound method

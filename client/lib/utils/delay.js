@@ -1,5 +1,7 @@
 import { getNode } from '../dom/getNode.js'
 import { isNumber, isObject } from './type.js'
+import { xhrPromise } from './xhr.js';
+import { insertLast } from '../dom/insert.js'
 
 function delay(callback, timeout = 1000){
     setTimeout(callback, timeout)
@@ -12,19 +14,19 @@ const second = getNode('.second');
 
 
 
-delay(()=>{
-    first.style.top = '-100px';
-    second.style.top = '100px';
-    delay(()=>{
-        first.style.transform = 'rotate(360deg)';
-        second.style.transform = 'rotate(360deg)';
-        delay(()=>{
-            first.style.top = 0
-            second.style.top = 0
-        })
-    })
+// delay(()=>{
+//     first.style.top = '-100px';
+//     second.style.top = '100px';
+//     delay(()=>{
+//         first.style.transform = 'rotate(360deg)';
+//         second.style.transform = 'rotate(360deg)';
+//         delay(()=>{
+//             first.style.top = 0
+//             second.style.top = 0
+//         })
+//     })
     
-})
+// })
 
 
 /*
@@ -77,9 +79,9 @@ function delayP(options) {
     })
 }
 
-delayP(1000)
+// delayP(1000)
 
-delayP({errorMessage : '에러~~~'})
+// delayP({errorMessage : '에러~~~'})
 
 
 
@@ -103,3 +105,91 @@ delayP({errorMessage : '에러~~~'})
 //     first.style.top = 0;
 //     second.style.top = 0;
 // })
+
+
+
+
+// async await
+// async : 무 조 건 promise object를 리턴하는 함수
+// await : 코드 실행 흐름 제어
+//         result의 값을 꺼낼 수 있다
+
+async function f(){
+    return 10;
+}
+
+const a = await f();
+
+// console.log(a)
+
+
+// IIAFE
+// (async()=>{
+//     const a = await f();
+// })
+
+
+function delayA() {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve('성공')
+        },2000)
+    })
+}
+const result = await delayA();
+
+// console.log(result);
+
+
+
+async function 라면끓이기(){
+
+    const a = await delayP({data:'물'})
+    console.log(a);
+
+    const b = await delayP({data:'불 켜기'})
+    console.log(b);
+
+    const c = await delayP({data:'스프'})
+    console.log(c);
+
+
+    console.log('면');
+    console.log('계란');
+    console.log('먹기');
+    
+}
+
+// 라면끓이기();
+
+
+
+
+
+
+async function getData(){
+    const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/40')
+
+    const src = data.sprites.other.showdown['front_default'];
+    insertLast(document.body, `<img src="${src}" alt="" />`)
+}
+
+getData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
