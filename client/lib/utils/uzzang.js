@@ -1,4 +1,4 @@
-import { END_POINT } from "./xhr.js";
+const END_POINT = 'https://jsonplaceholder.typicode.com/users'
 
 // promise 객체가 반환되고 그 안의 promiseresult를 이용하고싶다면 await을 붙여라
 const response = await fetch(END_POINT);

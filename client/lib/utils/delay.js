@@ -171,7 +171,7 @@ async function getData(){
     const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/40')
 
     const src = data.sprites.other.showdown['front_default'];
-    insertFirst(document.body, `<img src="${src}" alt="" />`)
+    insertFirst(document.body, `<img class="pokemon" src="${src}" alt="" />`)
 }
 
 getData();
