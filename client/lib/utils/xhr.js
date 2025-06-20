@@ -1,4 +1,4 @@
-export const END_POINT = 'https://jsonplaceholder.typicode.com/users';
+export const END_POINT = 'http://localhost:3000/posts';
 
 /* 
   [readyState]

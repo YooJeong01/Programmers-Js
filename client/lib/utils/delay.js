@@ -1,7 +1,7 @@
 import { getNode } from '../dom/getNode.js'
 import { isNumber, isObject } from './type.js'
 import { xhrPromise } from './xhr.js';
-import { insertLast } from '../dom/insert.js'
+import { insertFirst, insertLast } from '../dom/insert.js'
 
 function delay(callback, timeout = 1000){
     setTimeout(callback, timeout)
@@ -49,7 +49,7 @@ const defaultOptions = {
 
 
 
-function delayP(options) {
+export function delayP(options) {
     let config = {...defaultOptions}
     // 전달받은 인자(=options)가 숫자인 경우
     if(isNumber(options)){
@@ -171,7 +171,7 @@ async function getData(){
     const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/40')
 
     const src = data.sprites.other.showdown['front_default'];
-    insertLast(document.body, `<img src="${src}" alt="" />`)
+    insertFirst(document.body, `<img src="${src}" alt="" />`)
 }
 
 getData();
