@@ -183,6 +183,9 @@ registerCancelButton.addEventListener('click',handleRegisterCancel);
 registerDoneButton.addEventListener('click',handleRegisterCreate);
 
 
+
+// ========================== 로그인 확인 =======================
+
 const isLogin = await uzzang.post('http://localhost:3000/login',{
     email:'test2@123.com',
     password:'12345678'
