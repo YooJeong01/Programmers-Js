@@ -1,4 +1,26 @@
-// ==========================  범쌤코드  ============================
+// ==================== Template 실습 ======================
+
+// const template = document.createElement('template');
+// template.innerHTML = /* html */`
+//             <style>
+//                 @import url('./components/Counter/_Counter.css');
+//             </style>
+
+//             <button type="button" class="decrement" aria-label="감소">-</button>
+//             <span>${10}</span>
+//             <button type="button" class="increment" aria-label="증가">+</button>
+//         `
+// console.log(template)
+
+
+
+
+
+
+
+
+
+// ==========================  범쌤코드(Shadow DOM. Counter 실습)  ============================
 class _Counter extends HTMLElement {
     constructor(){
         super();
@@ -51,6 +73,10 @@ class _Counter extends HTMLElement {
 
     render(){
         const {value} = this.state;
+        // Template 실습
+        // this.shadowRoot.append(template.content.cloneNode(true));
+
+        // ShadowDOM 실습
         this.shadowRoot.innerHTML=/* html */`
             <style>
                 @import url('./components/Counter/_Counter.css');
